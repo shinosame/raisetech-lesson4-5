@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'comments/new'
+  get 'comments/create'
+  get 'comments/destroy'
+  get 'comments/show'
   get 'favorites/create'
   get 'favorites/destroy'
   root 'tweets#index'  # 追加
@@ -17,6 +21,7 @@ Rails.application.routes.draw do
 
   resources :tweets  do
     resource :favorites, only: [:create, :destroy]
+    resource :comments
   end
   
   resources :users  # 追加
